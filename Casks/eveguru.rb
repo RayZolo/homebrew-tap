@@ -1,6 +1,6 @@
 cask "eveguru" do
-  version "0.0.1"
-  sha256 "aefa6632823af05f280c0a2afd24da5c1f4a952a362dbd42148b0ba13cd1ca5c"
+  version "0.0.2"
+  sha256 "703a8089573c7af34eb471172c70a4f9886dc642b1963b70b1cc416caea9e949"
 
   url "https://github.com/rayzolo/eveguru-osx-bundle/releases/download/v#{version}/EveGuru.zip"
   name "EveGuru"
