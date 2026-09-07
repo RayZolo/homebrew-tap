@@ -1,4 +1,4 @@
-cask "gstreamer-runtime" do
+cask "eveguru-gstreamer-runtime" do
   version "1.28.6"
   sha256 "a8eb366c59b7e9e5dc049848fed6bcd203a8878aa7517c051639fda78797c6ad"
 
@@ -12,8 +12,7 @@ cask "gstreamer-runtime" do
     regex(/gstreamer[._-]1\.0[._-]v?(\d+(?:\.\d+)+)[._-]universal\.pkg/i)
   end
 
-  disable! date: "2026-09-01", because: :fails_gatekeeper_check
-
+  conflicts_with cask: "gstreamer-runtime"
   depends_on :macos
 
   pkg "gstreamer-1.0-#{version}-universal.pkg"

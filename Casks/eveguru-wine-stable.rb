@@ -1,4 +1,4 @@
-cask "wine-stable" do
+cask "eveguru-wine-stable" do
   version "11.0_1"
   sha256 "b50dc50ec7f41d58b115a6b685d4d1315ba3c797bd3aa0f49213f2703cb82388"
 
@@ -30,14 +30,13 @@ cask "wine-stable" do
     end
   end
 
-  disable! date: "2026-09-01", because: :fails_gatekeeper_check
-
   conflicts_with cask: [
+    "wine-stable",
     "wine@devel",
     "wine@staging",
   ]
   depends_on :macos
-  depends_on cask: "gstreamer-runtime"
+  depends_on cask: "eveguru-gstreamer-runtime"
 
   app "Wine Stable.app"
   binary "#{appdir}/Wine Stable.app/Contents/Resources/start/bin/appdb"
