@@ -61,6 +61,17 @@ To see launcher and Wine logs in real time, run the launcher from the Terminal:
 # ⠄ [00:00:04] [#####>------------------------] [8.80 MiB/51.62 MiB] 1.82 MiB/s (23.5s)
 ```
 
+### Error: Failed to quarantine one or more files
+
+macOS can occasionally fail while scanning Wine files during extraction.
+This is a known Homebrew/macOS quirk, not an issue with EveGuru.
+
+The download is already cached on your Mac—simply re-run the command (it may take a few retries):
+
+```shell
+brew install rayzolo/tap/eveguru
+```
+
 ### macOS Gatekeeper / Quarantine
 
 Quarantine attributes are stripped automatically during installation. If macOS prevents the app or Wine from launching, you can manually remove quarantine flags:
