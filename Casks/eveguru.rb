@@ -19,9 +19,8 @@ cask "eveguru" do
 
   app "EveGuru.app"
 
-  postflight do
-    system_command "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "#{HOMEBREW_PREFIX}/Caskroom/eveguru-wine-stable"]
-    system_command "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", caskroom_path]
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "{{appdir}}/EveGuru.app"]
   end
 
   uninstall quit: "online.eveguru.app"

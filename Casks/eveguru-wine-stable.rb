@@ -56,6 +56,10 @@ cask "eveguru-wine-stable" do
   binary "#{appdir}/Wine Stable.app/Contents/Resources/wine/bin/winepath"
   binary "#{appdir}/Wine Stable.app/Contents/Resources/wine/bin/wineserver"
 
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "{{appdir}}/Wine Stable.app"]
+  end
+
   zap trash: [
         "~/.local/share/applications/wine*",
         "~/.local/share/icons/hicolor/**/application-x-wine*",
