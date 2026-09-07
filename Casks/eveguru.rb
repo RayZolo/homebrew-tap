@@ -13,15 +13,14 @@ cask "eveguru" do
   end
 
   auto_updates true
-  depends_on cask: "wine-stable"
+  depends_on cask: "eveguru-wine-stable"
   depends_on formula: "nushell"
   depends_on formula: "unzip"
 
   app "EveGuru.app"
 
-  postflight do
-    system_command "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "#{HOMEBREW_PREFIX}/Caskroom/wine-stable"]
-    system_command "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", caskroom_path]
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "{{appdir}}/EveGuru.app"]
   end
 
   uninstall quit: "online.eveguru.app"
